@@ -12,7 +12,7 @@ internal class Advent3KtTest {
 
     @Test
     fun myTest() {
-        assertThat(advent3("/advent_3/my.test")).isEqualTo(2)
+        assertThat(advent3("/advent_3/my.test")).isEqualTo(1)
     }
 
     @Test
@@ -21,7 +21,7 @@ internal class Advent3KtTest {
     }
 
     @Test
-    fun myTest3() {
-        assertThat(advent3("/advent_3/my_3.test")).isEqualTo(3)
+    fun mainTest() {
+        assertThat(advent3("/advent_3/main.test")).isEqualTo(10568)
     }
 }
