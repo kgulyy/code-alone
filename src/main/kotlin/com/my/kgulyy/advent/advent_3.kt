@@ -20,27 +20,26 @@ fun advent3(inputFilePath: String): Int {
 
 fun countNodes(height: Int, ropes: MutableList<Int>): Int {
     val stack = Stack<Int>()
-    var isDone = false
 
+    var isDone = tie(stack, height, ropes)
     while (!isDone) {
-        for (i in ropes) {
-            stack.push(i)
-            if (stack.sum() == height) {
-                isDone = true
-                break
-            }
-            if (stack.sum() > height) {
-                stack.pop()
-            }
-        }
+        val lastItem = stack.pop()
+        val lastIndexOfItem = ropes.lastIndexOf(lastItem)
+        if (lastIndexOfItem == ropes.lastIndex) continue
 
-        if (!isDone) {
-            ropes.removeFirst()
-            stack.clear()
-        }
+        isDone = tie(stack, height, ropes.subList(lastIndexOfItem + 1, ropes.lastIndex + 1))
     }
 
     println(stack)
     return stack.count() - 1
+}
+
+fun tie(stack: Stack<Int>, height: Int, ropes: MutableList<Int>): Boolean {
+    for (i in ropes) {
+        stack.push(i)
+        if (stack.sum() == height) return true
+        if (stack.sum() > height) stack.pop()
+    }
+    return false
 }
 
