@@ -4,7 +4,7 @@ import com.my.kgulyy.util.StringUtils
 import java.util.*
 
 fun main() {
-    println(advent4("/advent_4/smoke.test"))
+    println(advent4("/advent_4/main.test"))
 }
 
 fun advent4(inputFilePath: String): Int {
@@ -12,7 +12,18 @@ fun advent4(inputFilePath: String): Int {
     val scanner = Scanner(inputStream)
 
     val n = scanner.nextInt()
-    val fanBlades = LinkedList(MutableList(n) { scanner.nextInt() })
+    val initialFan = MutableList(n) { scanner.nextInt() }
 
-    return 0
+    val currentFan = LinkedList(initialFan)
+    var sumOfStates = 0
+
+    for (i in 0 until n) {
+        if (currentFan == initialFan) {
+            sumOfStates++
+        }
+        val first = currentFan.removeFirst()
+        currentFan.addLast(first)
+    }
+
+    return n / sumOfStates
 }
