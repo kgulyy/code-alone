@@ -7,6 +7,6 @@ internal class Advent4KtTest {
 
     @Test
     fun smokeTest() {
-        assertThat(advent4()).isEqualTo(0)
+        assertThat(advent4("/advent_4/smoke.test")).isEqualTo(2)
     }
 }
