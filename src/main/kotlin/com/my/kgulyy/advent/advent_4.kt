@@ -12,7 +12,7 @@ fun advent4(inputFilePath: String): Int {
     val scanner = Scanner(inputStream)
 
     val n = scanner.nextInt()
-    val initialFan = MutableList(n) { scanner.nextInt() }
+    val initialFan = List(n) { scanner.nextInt() }
 
     val currentFan = LinkedList(initialFan)
     var sumOfStates = 0
