@@ -1,7 +1,6 @@
 package com.my.kgulyy.advent
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class Advent5KtTest {
@@ -13,6 +12,6 @@ internal class Advent5KtTest {
 
     @Test
     fun mainTest() {
-        assertThat(advent4("/advent_5/main.test")).isEqualTo("")
+        assertThat(advent5("/advent_5/main.test")).isEqualTo("")
     }
 }
